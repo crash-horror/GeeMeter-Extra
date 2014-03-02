@@ -2,11 +2,11 @@ GeeMeter Extra v0.62
 ===
 Works for FC3 aircraft only.
 
-Screenshot: http://i.imgur.com/1FWIbMN.png
+Screenshot: http://i.imgur.com/5v7U4bQ.png
 
 Features:
 
-	G-meter
+	G-meter.
 	Angle of attack indexer.
 	Angle of attack value.
 	Mach number.
