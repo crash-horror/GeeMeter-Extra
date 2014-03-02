@@ -2,7 +2,7 @@ GeeMeter Extra v0.62
 ===
 Works for FC3 aircraft only.
 
-[Screenshot:](http://i.imgur.com/5v7U4bQ.png)
+[Screenshot](http://i.imgur.com/5v7U4bQ.png)
 
 Features:
 
