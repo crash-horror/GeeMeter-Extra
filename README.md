@@ -1,11 +1,11 @@
 GeeMeter Extra v0.62
-===
+====================
 Works for FC3 aircraft only.
 
-[Screenshot](http://i.imgur.com/5v7U4bQ.png)
+![Screenshot](http://i.imgur.com/5v7U4bQ.png)
 
 Features:
-
+=========
 * G-meter.
 * Angle of attack indexer.
 * Angle of attack value.
@@ -20,7 +20,7 @@ Features:
 You can switch the unit system by clicking at the "METRIC" or "IMPERIAL" label.
 
 Important:
-===
+==========
 	For this script to work you need to add the
 	lines contained in the "ADD_THIS_TO_YOUR_Export.lua"
 	at the end of your Export.lua file located at:
