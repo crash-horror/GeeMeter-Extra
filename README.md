@@ -1,10 +1,23 @@
 GeeMeter Extra v0.62
 ===
-Works for FC3 aircraft only <<< to be fixed.
+Works for FC3 aircraft only.
+Screenshot: https://dl.dropboxusercontent.com/u/23233211/DCS/GeeMeter/gmeter-061.PNG
 
-	The "gee_extra.0.6.2.py" script creates a fixed 400 by 1120 window,
-	which means you need at least 1200 vertical
-	screen resolution on your second monitor.
+Features:
+
+	G-meter
+	Angle of attack indexer.
+	Angle of attack value.
+	Mach number.
+	Kilometers (or miles) you cover in a minute.
+	Fuel flow for both engines combined in kg/min (or lb/min).
+	Endurance in minutes, you can fly at current engine power.
+	Range in km (or miles), you can fly at current engine power.
+	Internal fuel quantity in kg (or lb).
+	External fuel tanks quantity in kg (or lb).
+
+	You can switch the unit system by clicking at the
+	"METRIC" or "IMPERIAL" label.
 
 Important:
 
@@ -24,6 +37,10 @@ WIP:
 	from ".py" to ".pyw".
 
 Note:
+
+	The "gee_extra.0.6.2.py" script creates a fixed 400 by 1120 window,
+	which means you need at least 1200 vertical
+	screen resolution on your second monitor.
 
 	In case you want to run this script on another
 	computer, you just need to change the IP address
