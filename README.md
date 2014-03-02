@@ -6,22 +6,21 @@ Works for FC3 aircraft only.
 
 Features:
 
-	G-meter.
-	Angle of attack indexer.
-	Angle of attack value.
-	Mach number.
-	Kilometers (or miles) you cover in a minute.
-	Fuel flow for both engines combined in kg/min (or lb/min).
-	Endurance in minutes, you can fly at current engine power.
-	Range in km (or miles), you can fly at current engine power.
-	Internal fuel quantity in kg (or lb).
-	External fuel tanks quantity in kg (or lb).
+* G-meter.
+* Angle of attack indexer.
+* Angle of attack value.
+* Mach number.
+* Kilometers (or miles) you cover in a minute.
+* Fuel flow for both engines combined in kg/min (or lb/min).
+* Endurance in minutes, you can fly at current engine power.
+* Range in km (or miles), you can fly at current engine power.
+* Internal fuel quantity in kg (or lb).
+* External fuel tanks quantity in kg (or lb).
 
-	You can switch the unit system by clicking at the
-	"METRIC" or "IMPERIAL" label.
+You can switch the unit system by clicking at the "METRIC" or "IMPERIAL" label.
 
 Important:
-
+===
 	For this script to work you need to add the
 	lines contained in the "ADD_THIS_TO_YOUR_Export.lua"
 	at the end of your Export.lua file located at:
