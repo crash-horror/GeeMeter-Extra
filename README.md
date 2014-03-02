@@ -1,7 +1,8 @@
 GeeMeter Extra v0.62
 ===
 Works for FC3 aircraft only.
-Screenshot: https://dl.dropboxusercontent.com/u/23233211/DCS/GeeMeter/gmeter-061.PNG
+
+Screenshot: http://i.imgur.com/1FWIbMN.png
 
 Features:
 
@@ -38,7 +39,7 @@ WIP:
 
 Note:
 
-	The "gee_extra.0.6.2.py" script creates a fixed 400 by 1120 window,
+	The "gee_extra.v0.62.py" script creates a fixed 400 by 1120 window,
 	which means you need at least 1200 vertical
 	screen resolution on your second monitor.
 

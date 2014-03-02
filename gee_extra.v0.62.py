@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-## GeeMeter Extra WOW
+## GeeMeter Extra
 version = 0.62
 
 from tkinter import *
@@ -100,7 +100,7 @@ def onObjectClick(event):
 ##---------------------------------------------------------------------------------------------------------
 
 root = Tk()
-root.title('Gee Meter Extra')
+root.title('Gee Meter Extra ' + str(version))
 root.resizable(0,0)
 w = Canvas(root, width=400, height=1120, bg='black')
 w.pack()
