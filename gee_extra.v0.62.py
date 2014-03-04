@@ -343,9 +343,6 @@ def the_server():
 		datastring = str(data)
 		datalist = [float(x) for x in datastring[2:-1].split()]
 
-		# km_to_mile = 0.54
-		# kgr_to_pound = 2.205
-
 		gee_global_data = datalist[0]
 
 		aoa_global_data = degrees(datalist[1])
