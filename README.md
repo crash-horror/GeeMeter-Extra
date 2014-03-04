@@ -8,7 +8,7 @@ Features:
 =========
 * G-meter.
 * Angle of attack indexer.
-* Angle of attack value.
+* Angle of attack number.
 * Mach number.
 * Kilometers (or miles) you cover in a minute.
 * Fuel flow for both engines combined in kg/min (or lb/min).
@@ -44,7 +44,7 @@ Note:
 
 	In case you want to run this script on another
 	computer, you just need to change the IP address
-	in the Export.lua (see below) from
+	in the Export.lua, from
 	host = "localhost" to host = xxx.xxx.xxx.xxx
 	or host = "your_computer_network_name"
 	according to your lan address you run GeeMeter on.
@@ -54,4 +54,5 @@ Troubleshoot:
 	If the server is not starting/restarting:
 	Open windows task manager and kill the process
 	'pythonw.exe'.
-	The reason is that the server may not have terminated properly.
+	The reason is that the server may not have terminated properly,
+	which is fairly rare.
