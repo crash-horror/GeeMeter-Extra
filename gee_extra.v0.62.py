@@ -102,6 +102,7 @@ def onObjectClick(event):
 root = Tk()
 root.title('Gee Meter Extra ' + str(version))
 root.resizable(0,0)
+root.iconbitmap(default='favicon.ico')
 w = Canvas(root, width=400, height=1120, bg='black')
 w.pack()
 
