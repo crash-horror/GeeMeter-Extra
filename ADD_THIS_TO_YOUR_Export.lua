@@ -1,4 +1,6 @@
 ------------------------------------------------
+---------START OF GEE-METER-EXTRA CODE----------
+------------------------------------------------
 function LuaExportStart()
 	package.path  = package.path..";.\\LuaSocket\\?.lua"
 	package.cpath = package.cpath..";.\\LuaSocket\\?.dll"
@@ -21,4 +23,6 @@ end
 function LuaExportStop()
 	c:close()
 end
+------------------------------------------------
+----------END OF GEE-METER-EXTRA CODE-----------
 ------------------------------------------------
