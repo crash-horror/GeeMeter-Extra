@@ -2,7 +2,7 @@ GeeMeter Extra v0.62
 ====================
 Works for FC3 aircraft only.
 
-![Screenshot](http://i.imgur.com/5v7U4bQ.png)
+![Screenshot](http://i.imgur.com/l286aMg.png)
 
 Features:
 =========
@@ -30,11 +30,6 @@ Important:
 	C:\Users\~\Saved Games\DCS.openbeta\Scripts\Export.lua
 
 	If it does not exist, just create it, (the "Scripts" folder too).
-WIP:
-
-	Running this will pop a console window for debugging,
-	it is intentional. To get rid of it, rename the extension
-	from ".py" to ".pyw".
 
 Note:
 
