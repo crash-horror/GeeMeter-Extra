@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 ## GeeMeter Extra for DCS:FC3
-version = 0.6.2
+version = 0.62
 
 ################################################
 # This monstrosity was created by crash_horror
 # and comes without warranty of any kind,
-# read the licence.		
+# read the licence.
 # (https://github.com/crash-horror)
 ################################################
 
@@ -67,7 +67,7 @@ def onObjectClick(event):
 
 	# mile = 1
 	# pound = 1
-	
+
 	w.delete('unittags')
 
 	if whatunits == 'METRIC':
@@ -190,7 +190,7 @@ w.pack()
 ##-----------------------------------------------------------------------------------------------------------
 def the_main_loop():
 	global geelist, numlist, whatunits, mile, pound, aoabarslisttags, aoabarslist, gee_global_data, aoa_global_data, mach_global_data, fuelflow_global_data, fuel_internal_global_data, fuel_external_global_data, true_speed_global_data
-	
+
 	##<<-------------------------------GEE-------------------------------------
 	gee = round(gee_global_data)
 
@@ -244,7 +244,7 @@ def the_main_loop():
 	w.itemconfig(aoaonlignt, fill='green')
 
 	#<<--------------------------------AOA-----------------------------------
-	w.itemconfig('displayaoa', text=round(aoa_global_data)) 
+	w.itemconfig('displayaoa', text=round(aoa_global_data))
 
 	if aoa_global_data > 23 or aoa_global_data < 0:
 		w.itemconfig('aoa', fill='red')
@@ -270,7 +270,7 @@ def the_main_loop():
 	#<<-----------------------------ENDURANCE--------------------------------
 	endurance_var = 0.0
 	if fuelflow_global_data != 0:
-		endurance_var = (fuel_internal_global_data + fuel_external_global_data) / fuelflow_global_data 
+		endurance_var = (fuel_internal_global_data + fuel_external_global_data) / fuelflow_global_data
 		w.itemconfig('displayendurance', text=round( endurance_var ) )
 	else:
 		w.itemconfig('displayendurance', text='-')
@@ -287,7 +287,7 @@ def the_main_loop():
 		w.itemconfig('internal.fuel', fill='orange')
 	else:
 		w.itemconfig('internal.fuel', fill='grey10')
-	
+
 	#<<---------------------EXTERNAL-FUEL---------------------------
 	w.itemconfig('displayexternal', text=round( fuel_external_global_data * pound ))
 
