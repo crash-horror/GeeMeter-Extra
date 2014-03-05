@@ -1,7 +1,13 @@
 #!/usr/bin/python3
+## GeeMeter Extra for DCS:FC3
+version = 0.6.2
 
-## GeeMeter Extra
-version = 0.62
+################################################
+# This monstrosity was created by crash_horror
+# and comes without warranty of any kind,
+# read the licence.		
+# (https://github.com/crash-horror)
+################################################
 
 from tkinter import *
 from socket import *
