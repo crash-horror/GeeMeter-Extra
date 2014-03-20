@@ -33,10 +33,6 @@ true_speed_global_data = 0.0
 serverstatus = 'DOWN'
 whatunits = 'METRIC'
 
-geelist =   ['nine', 'eight', 'seven',  'six',    'five',   'four',   'three', 'two',   'one',  'zero', 'minus']
-colorlist = ['red',  'red',   'orange', 'orange', 'yellow', 'yellow', 'green', 'green', 'blue', 'blue', 'red'  ]
-numlist =   [ 9,      8,       7,        6,        5,        4,        3,       2,       1,      0,      -1    ]
-
 geevaluelist = [(9, 'nine', 'red'),
                 (8, 'eight', 'red'),
                 (7, 'seven', 'orange'),
@@ -179,8 +175,6 @@ w.pack()
 
 def the_main_loop():
     global geevaluelist,\
-        geelist,\
-        numlist,\
         whatunits,\
         mile,\
         pound,\
