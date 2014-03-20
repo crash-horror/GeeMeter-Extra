@@ -1,4 +1,4 @@
-GeeMeter Extra v0.62
+GeeMeter Extra v0.63
 ====================
 Works for FC3 aircraft only.
 
@@ -33,7 +33,7 @@ Important:
 
 Note:
 
-	The "gee_extra.v0.62.py" script creates a fixed 400 by 1120 window,
+	The script creates a fixed 400 by 1120 window,
 	which means you need at least 1200 vertical
 	screen resolution on your second monitor.
 
@@ -49,5 +49,4 @@ Troubleshoot:
 	If the server is not starting/restarting:
 	Open windows task manager and kill the process
 	'pythonw.exe'.
-	The reason is that the server may not have terminated properly,
-	which is fairly rare.
+	The reason is that the server may not have terminated properly.
