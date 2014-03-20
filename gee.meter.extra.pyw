@@ -13,6 +13,7 @@ from tkinter import *
 from socket import *
 from threading import *
 from math import degrees
+from sys import platform
 import time
 
 km_to_mile = 0.54
@@ -97,7 +98,10 @@ def onObjectClick(event):
 root = Tk()
 root.title('Gee Meter Extra ' + str(version))
 root.resizable(0, 0)
-root.iconbitmap(default='favicon.ico')
+
+if sys.platform == 'win32':
+    root.iconbitmap(default='favicon.ico')
+
 w = Canvas(root, width=400, height=1120, bg='black')
 w.pack()
 
