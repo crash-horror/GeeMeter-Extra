@@ -52,13 +52,26 @@ dispaylist =      ['displayaoa', 'displaymach', 'displaykmpermin', 'displayfuelf
 unitmetric =      ['',           '',            'km/min',          'kg/min',          'min',              'km',           'kg',               'kg'                ]
 unitimperial =    ['',           '',            'nM/min',          'ppm',             'min',              'nM',           'lb',               'lb'                ]
 
-aoaindexlist =   ['top', 'center', 'bottom']
-aoaindexobject = ['V', 'O', 'Ʌ']
-
-aoabarslisttags = ['aaa', 'bbb', 'ccc', 'ddd', 'eee', 'fff', 'ggg', 'hhh', 'iii', 'jjj', 'kkk', 'lll', 'mmm', 'nnn']
-aoabarslist =     [  17,    16,    15,    14,    13,    12,    11,    10,     9,     8,     7,     6,     5,     4 ]
-
 unitdisplaylist = unitmetric
+
+aoaindextuple = [('top', 'V'),
+                 ('center', 'O'),
+                 ('bottom', 'Ʌ')]
+
+aoabarstuple = [(17, 'aoaseventeen'),
+                (16, 'aoasixteen'),
+                (15, 'aoafifteen'),
+                (14, 'aoafourteen'),
+                (13, 'aoathirteen'),
+                (12, 'aoatwelve'),
+                (11, 'aoaeleven'),
+                (10, 'aoaten'),
+                (9, 'aoanine'),
+                (8, 'aoaeight'),
+                (7, 'aoaseven'),
+                (6, 'aoasix'),
+                (5, 'aoafive'),
+                (4, 'aoafour')]
 
 
 ##-----------------------------------------------------------------------------
@@ -67,13 +80,12 @@ unitdisplaylist = unitmetric
 
 
 def onObjectClick(event):
-    global whatunits, unitdisplaylist, unitmetric, unitimperial, mile, pound
-
-    # km_to_mile = 0.54
-    # kgr_to_pound = 2.205
-
-    # mile = 1
-    # pound = 1
+    global whatunits,\
+        unitdisplaylist,\
+        unitmetric,\
+        unitimperial,\
+        mile,\
+        pound
 
     w.delete('unittags')
 
@@ -94,7 +106,7 @@ def onObjectClick(event):
         posit += 100
 
     w.itemconfig('units', text=whatunits)
-    print('Changed units to:', whatunits)
+    print('Changed units to:', whatunits)  # debug fossil
     w.update()
 
 
@@ -114,32 +126,27 @@ w = Canvas(root, width=400, height=1120, bg='black')
 w.pack()
 
 
-#----GEE-METER--------------------
+#----GEE-METER-----------------------------------------------------------------
 posit = 0
 for i, j, k, in geevaluelist:
     w.create_rectangle(220, 10+posit, 380, 80+posit, fill="grey10", tags=j)
     w.create_text(300, 45+posit, text=i, font=('Arial', 40))
     posit += 100
 
-
-#----AOA-INDEXER--------------------
+#----AOA-INDEXER---------------------------------------------------------------
 posit = 0
-for i in aoaindexlist:
+for i, j in aoaindextuple:
     w.create_rectangle(100, 10+posit, 180, 80+posit, fill='grey10', tags=i)
+    w.create_text(140, 45+posit, text=j, font=('Arial', 40))
     posit += 100
 
+#----AOA-BARS------------------------------------------------------------------
 posit = 0
-for i in aoaindexobject:
-    w.create_text(140, 45+posit, text=i, font=('Arial', 40))
-    posit += 100
-
-#----AOA-BARS---------------------
-posit = 0
-for i in aoabarslisttags:
-    w.create_rectangle(20, 10+posit, 90, 20+posit, fill='grey10', tags=i)
+for i, j in aoabarstuple:
+    w.create_rectangle(20, 10+posit, 90, 20+posit, fill='grey10', tags=j)
     posit += 20
 
-#----BOXES------------------------
+#----BOXES---------------------------------------------------------------------
 posit = 0
 for i in boxlist:
     w.create_rectangle(20, 310+posit, 180, 380+posit, fill='grey10', tags=i)
@@ -151,17 +158,17 @@ for i in unitdisplaylist:
     w.create_text(170, 320+posit, text=i, fill='grey40', anchor='e', tags='unittags')
     posit += 100
 
-#----DATA-TEXT--------------------
+#----DATA-TEXT-----------------------------------------------------------------
 posit = 0
 for i in dispaylist:
     w.create_text(100, 350+posit, text='-', font=('Arial', 30), fill=('white'), tags=i)
     posit += 100
 
-#----STATUS-----------------------
+#----STATUS--------------------------------------------------------------------
 w.create_text(300, 1105, text=serverstatus, font=('Arial'), fill=('grey40'), tags='statusbar')
 w.update()
 
-#----UNITS------------------------
+#----UNITS---------------------------------------------------------------------
 w.create_text(100, 1105, text=whatunits, font=('Arial'), fill=('grey40'), tags='units')
 w.tag_bind('units', '<ButtonPress-1>', onObjectClick)
 
@@ -175,11 +182,10 @@ w.pack()
 
 def the_main_loop():
     global geevaluelist,\
+        aoabarstuple,\
         whatunits,\
         mile,\
         pound,\
-        aoabarslisttags,\
-        aoabarslist,\
         gee_global_data,\
         aoa_global_data,\
         mach_global_data,\
@@ -206,7 +212,7 @@ def the_main_loop():
         else:
             w.itemconfig(j, fill='grey10')
 
-    #<<----------------------------AOA-INDEXER-------------------------------
+    #<<----------------------------AOA-INDEXER---------------------------------
     if aoa_global_data > 12:
         w.itemconfig('top', fill='yellow')
     else:
@@ -222,7 +228,7 @@ def the_main_loop():
     else:
         w.itemconfig('bottom', fill='grey10')
 
-    #<<------------------------------AOA-BARS---------------------------------
+    #<<------------------------------AOA-BARS----------------------------------
     aoa = round(aoa_global_data)
 
     if aoa < 4:
@@ -230,14 +236,13 @@ def the_main_loop():
     elif aoa > 17:
         aoa = 17
 
-    aoaonlignt = aoabarslisttags[aoabarslist.index(aoa)]
+    for x, y in aoabarstuple:
+        if x <= aoa:
+            w.itemconfig(y, fill='green')
+        else:
+            w.itemconfig(y, fill='grey10')
 
-    for aoaoff in aoabarslisttags:
-        w.itemconfig(aoaoff, fill='grey10')
-
-    w.itemconfig(aoaonlignt, fill='green')
-
-    #<<--------------------------------AOA-----------------------------------
+    #<<--------------------------------AOA-------------------------------------
     w.itemconfig('displayaoa', text=round(aoa_global_data))
 
     if aoa_global_data > 23 or aoa_global_data < 0:
@@ -247,7 +252,7 @@ def the_main_loop():
     else:
         w.itemconfig('aoa', fill='grey10')
 
-    #<<-------------------------------MACH-----------------------------------
+    #<<-------------------------------MACH-------------------------------------
     w.itemconfig('displaymach', text=mach_global_data)
 
     if mach_global_data >= 1:
@@ -255,13 +260,13 @@ def the_main_loop():
     else:
         w.itemconfig('mach', fill='grey10')
 
-    #<<---------------------KM-PER-MIN-------------------------------
+    #<<------------------------------KM-PER-MIN--------------------------------
     w.itemconfig('displaykmpermin', text=round(true_speed_global_data / 60 * mile))
 
-    #<<-----------------------------FUEL FLOW--------------------------------
+    #<<-----------------------------FUEL FLOW----------------------------------
     w.itemconfig('displayfuelflow', text=round(fuelflow_global_data * pound))
 
-    #<<-----------------------------ENDURANCE--------------------------------
+    #<<-----------------------------ENDURANCE----------------------------------
     endurance_var = 0.0
     if fuelflow_global_data != 0:
         endurance_var = (fuel_internal_global_data + fuel_external_global_data) / fuelflow_global_data
@@ -269,10 +274,10 @@ def the_main_loop():
     else:
         w.itemconfig('displayendurance', text='-')
 
-    #<<-----------------------------RANGE-----------------------------------
+    #<<-------------------------------RANGE------------------------------------
     w.itemconfig('displayrange', text=round(true_speed_global_data * endurance_var / 60 * mile))
 
-    #<<----------------------INTERNAL-FUEL--------------------------
+    #<<----------------------------INTERNAL-FUEL-------------------------------
     w.itemconfig('displayinternal', text=round(fuel_internal_global_data * pound))
 
     if fuel_internal_global_data < 500:
@@ -282,7 +287,7 @@ def the_main_loop():
     else:
         w.itemconfig('internal.fuel', fill='grey10')
 
-    #<<---------------------EXTERNAL-FUEL---------------------------
+    #<<-----------------------------EXTERNAL-FUEL------------------------------
     w.itemconfig('displayexternal', text=round(fuel_external_global_data * pound))
 
     if fuel_external_global_data < 10:
@@ -312,7 +317,7 @@ def the_server():
     HOST = ''
     PORT = 1625
     ADDR = (HOST, PORT)
-    BUFSIZE = 512  # I do not need this, right?
+    # BUFSIZE = 512  # I do not need this, right?
 
     serv = socket(AF_INET, SOCK_STREAM)
     serv.bind((ADDR))
@@ -321,19 +326,19 @@ def the_server():
     serverstatus = 'LISTENING'
     w.itemconfig('statusbar', text=serverstatus)
     w.update()
-    print('Listening...')
+    print('Listening...')  # debug fossil
 
     conn, addr = serv.accept()
 
     serverstatus = 'CONNECTED'
     w.itemconfig('statusbar', text=serverstatus)
     w.update()
-    print('...connected!')
+    print('...connected!')  # debug fossil
 
     while True:
         data = conn.recv(512)
         if not data:
-            print('Gserver SHUTDOWN!')
+            print('Gserver SHUTDOWN!')  # debug fossil
             break
 
         datastring = str(data)
@@ -358,8 +363,9 @@ def the_server():
 
     serverstatus = 'RESTARTING...'
     w.itemconfig('statusbar', text=serverstatus)
+    w.update()
 
-    ##<<----------------RESET GLOBAL VARIABLES------------
+    ##<<--------------------------RESET GLOBAL VARIABLES-----------------------
     gee_global_data = 0.0
     aoa_global_data = 0.0
     mach_global_data = 0.0
@@ -368,12 +374,10 @@ def the_server():
     fuel_external_global_data = 0.0
     true_speed_global_data = 0.0
 
-    w.update()
-    print('Restarting...')
+    print('Restarting...')  # debug fossil
 
     time.sleep(5)
     the_server()
-
 
 ##-----------------------------------------------------------------------------
 ##-----------------------------------------------------------------------------
