@@ -178,7 +178,8 @@ w.pack()
 
 
 def the_main_loop():
-    global geelist,\
+    global geevaluelist,\
+        geelist,\
         numlist,\
         whatunits,\
         mile,\
@@ -201,18 +202,15 @@ def the_main_loop():
     elif gee > 9:
         gee = 9
 
-    onlightlist = geelist[numlist.index(gee):]
-
-    for on in onlightlist:
-        w.itemconfig(on, fill=colorlist[geelist.index(on)])
-
-    if gee > -1:
-        offlightlist = geelist[:numlist.index(gee)] + ['minus']
-    else:
-        offlightlist = geelist[:numlist.index(gee)]
-
-    for off in offlightlist:
-        w.itemconfig(off, fill='grey10')
+    for i, j, k in geevaluelist:
+        # on lights:
+        if i <= gee:
+            w.itemconfig(j, fill=k)
+            if gee > -1:
+                w.itemconfig('minus', fill='grey10')
+        # off lights:
+        else:
+            w.itemconfig(j, fill='grey10')
 
     #<<----------------------------AOA-INDEXER-------------------------------
     if aoa_global_data > 12:
