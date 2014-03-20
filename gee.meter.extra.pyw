@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 ## GeeMeter Extra for DCS:FC3
-version = 0.62
+version = 0.63
 
 ################################################
 # This monstrosity was created by crash_horror
@@ -36,6 +36,18 @@ whatunits = 'METRIC'
 geelist =   ['nine', 'eight', 'seven',  'six',    'five',   'four',   'three', 'two',   'one',  'zero', 'minus']
 colorlist = ['red',  'red',   'orange', 'orange', 'yellow', 'yellow', 'green', 'green', 'blue', 'blue', 'red'  ]
 numlist =   [ 9,      8,       7,        6,        5,        4,        3,       2,       1,      0,      -1    ]
+
+geevaluelist = [(9, 'nine', 'red'),
+                (8, 'eight', 'red'),
+                (7, 'seven', 'orange'),
+                (6, 'six', 'orange'),
+                (5, 'five', 'yellow'),
+                (4, 'four', 'yellow'),
+                (3, 'three', 'green'),
+                (2, 'two', 'green'),
+                (1, 'one', 'blue'),
+                (0, 'zero', 'blue'),
+                (-1, 'minus', 'red')]
 
 # variablelist = ['0.Gee.y', '1.AOA', '2.Mach', '3.Engine.FuelConsumption.left', '4.Engine.FuelConsumption.right', '5.Engine.fuel_internal', '6.Engine.fuel_external', '7.Speed']
 
@@ -108,12 +120,8 @@ w.pack()
 
 #----GEE-METER--------------------
 posit = 0
-for i in geelist:
-    w.create_rectangle(220, 10+posit, 380, 80+posit, fill='grey10', tags=i)
-    posit += 100
-
-posit = 0
-for i in numlist:
+for i, j, k, in geevaluelist:
+    w.create_rectangle(220, 10+posit, 380, 80+posit, fill="grey10", tags=j)
     w.create_text(300, 45+posit, text=i, font=('Arial', 40))
     posit += 100
 
@@ -129,13 +137,11 @@ for i in aoaindexobject:
     w.create_text(140, 45+posit, text=i, font=('Arial', 40))
     posit += 100
 
-
 #----AOA-BARS---------------------
 posit = 0
 for i in aoabarslisttags:
     w.create_rectangle(20, 10+posit, 90, 20+posit, fill='grey10', tags=i)
     posit += 20
-
 
 #----BOXES------------------------
 posit = 0
@@ -155,11 +161,9 @@ for i in dispaylist:
     w.create_text(100, 350+posit, text='-', font=('Arial', 30), fill=('white'), tags=i)
     posit += 100
 
-
 #----STATUS-----------------------
 w.create_text(300, 1105, text=serverstatus, font=('Arial'), fill=('grey40'), tags='statusbar')
 w.update()
-
 
 #----UNITS------------------------
 w.create_text(100, 1105, text=whatunits, font=('Arial'), fill=('grey40'), tags='units')
@@ -174,10 +178,20 @@ w.pack()
 
 
 def the_main_loop():
-    global geelist, numlist, whatunits, mile, pound, aoabarslisttags,
-    aoabarslist, gee_global_data, aoa_global_data, mach_global_data,
-    fuelflow_global_data, fuel_internal_global_data,
-    fuel_external_global_data, true_speed_global_data
+    global geelist,\
+        numlist,\
+        whatunits,\
+        mile,\
+        pound,\
+        aoabarslisttags,\
+        aoabarslist,\
+        gee_global_data,\
+        aoa_global_data,\
+        mach_global_data,\
+        fuelflow_global_data,\
+        fuel_internal_global_data,\
+        fuel_external_global_data,\
+        true_speed_global_data
 
     ##<<-------------------------------GEE-------------------------------------
     gee = round(gee_global_data)
@@ -294,9 +308,14 @@ def the_main_loop():
 
 
 def the_server():
-    global gee_global_data, aoa_global_data, mach_global_data, serverstatus,
-    fuelflow_global_data, fuel_internal_global_data, fuel_external_global_data,
-    true_speed_global_data
+    global gee_global_data,\
+        aoa_global_data,\
+        mach_global_data,\
+        serverstatus,\
+        fuelflow_global_data,\
+        fuel_internal_global_data,\
+        fuel_external_global_data,\
+        true_speed_global_data
 
     HOST = ''
     PORT = 1625
