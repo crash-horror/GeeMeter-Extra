@@ -51,3 +51,7 @@ Troubleshoot:
 	'pythonw.exe'.
 	The reason is that the server may not have terminated properly,
 	which is fairly rare.
+
+Buy me a beer:
+
+	Bitcoin: 15Ty4oCTxSxC9jwx7ViosdhFcetKbqChoM
