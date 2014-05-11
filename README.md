@@ -1,6 +1,6 @@
 GeeMeter Extra v0.63
 ====================
-Works for FC3 aircraft only.
+Works for FC3 aircraft only. (F-15C has bugged fuel flow)
 
 ![Screenshot](http://i.imgur.com/l286aMg.png)
 
