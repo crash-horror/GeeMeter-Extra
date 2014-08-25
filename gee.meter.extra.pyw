@@ -5,7 +5,7 @@ version = 0.63
 ################################################
 # This monstrosity was created by crash_horror
 # and comes without warranty of any kind,
-# read the licence.
+# read the license.
 # (https://github.com/crash-horror)
 ################################################
 
