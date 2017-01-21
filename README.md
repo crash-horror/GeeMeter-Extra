@@ -53,4 +53,5 @@ Troubleshoot:
 
 Buy me a beer:
 
-	Bitcoin: 15Ty4oCTxSxC9jwx7ViosdhFcetKbqChoM
+	Bitcoin: 1986UJtxePd1Q8k4wAAyWDwuhcFZQzCPPS
+
